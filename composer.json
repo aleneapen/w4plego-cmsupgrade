@@ -1,0 +1,14 @@
+{
+  "name": "w4plego/module-base",
+  "description": "W4PLEGO_Base",
+  "type": "magento2-module",
+  "version": "1.0.0.0",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "W4PLEGO\\Base\\": ""
+    }
+  }
+}
