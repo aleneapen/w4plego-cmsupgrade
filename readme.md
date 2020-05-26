@@ -1,6 +1,6 @@
-W4PLEGO BaseIntegration
+W4PLEGO Base
 =====================
 
-[wiki link](https://pm.web4pro.com.ua/projects/lego-web4pro-baseintegration/wiki)
+[wiki link](https://pm.web4pro.com.ua/projects/lego-web4pro-base/wiki)
 
 ### VERSION 1.0.0
