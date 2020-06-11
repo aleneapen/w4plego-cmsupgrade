@@ -1,12 +1,5 @@
 <?php
-/************************************************************
- * *
- *  * Copyright © W4PLEGO. All rights reserved.
- *  * See COPYING.txt for license details.
- *  *
- *  * @author    info@w4plego.com
- * *  @project   Core
- */
+
 namespace W4PLEGO\Base\Block\Adminhtml\Edit\Button;
 
 use Magento\Backend\Block\Template;
