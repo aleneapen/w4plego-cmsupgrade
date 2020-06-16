@@ -6,5 +6,3 @@
 =============
 * New features:
  - add "Admin > Stores > Configuration > Web4Pro" tab
-
-
