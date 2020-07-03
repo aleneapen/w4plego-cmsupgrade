@@ -3,4 +3,22 @@ W4PLEGO Base
 
 [wiki link](https://pm.web4pro.com.ua/projects/lego-web4pro-base/wiki)
 
-### VERSION 1.0.0
+### VERSION 1.0.4
+
+Create Config/Source array model for System configuration dropdown:
+```xml
+ <virtualType name="W4PLEGO\CustomModule\Model\Config\Source\LabelType" type="W4PLEGO\Base\Model\Config\Source\InputType">
+     <arguments>
+         <argument name="options" xsi:type="array">
+             <item name="creation" xsi:type="array">
+                 <item name="label" xsi:type="string" translatable="true">Label Creation</item>
+                 <item name="value" xsi:type="const">\W4PLEGO\CustomModule\Helper\Config::LABEL_CREATION</item>
+             </item>
+             <item name="creation_zebra" xsi:type="array">
+                 <item name="label" xsi:type="string" translatable="true">Label Creation Zebra</item>
+                 <item name="value" xsi:type="const">\W4PLEGO\CustomModule\Helper\Config::LABEL_CREATION_ZEBRA</item>
+             </item>
+         </argument>
+     </arguments>
+ </virtualType>
+```
