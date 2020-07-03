@@ -14,3 +14,7 @@
 1.0.3
 =============
  - add Button blocks and Uploader for W4PLEGO_ProductLabel extension
+ 
+1.0.4
+=============
+ - add InputType class for creating Config/Source models
