@@ -18,3 +18,7 @@
 1.0.4
 =============
  - add InputType class for creating Config/Source models
+
+1.0.5
+=============
+ - fix `mage.dataPost` widget for W4PLEGO_ExtendedWishlist extension
