@@ -2,7 +2,7 @@
   "name": "w4plego/base",
   "description": "W4PLEGO_Base",
   "type": "magento2-module",
-  "version": "1.0.5.0",
+  "version": "1.0.6.0",
   "autoload": {
     "files": [
       "registration.php"
