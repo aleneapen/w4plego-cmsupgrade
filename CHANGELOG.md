@@ -25,4 +25,8 @@
  
 1.0.6
 =============
+- fix broken admin layout
+ 
+1.0.7
+=============
 - add current Product, Category services
