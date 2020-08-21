@@ -23,6 +23,10 @@
 =============
  - fix `mage.dataPost` widget for W4PLEGO_ExtendedWishlist extension
  
- 1.0.6
+1.0.6
 =============
- - fix broken admin layout
+- fix broken admin layout
+ 
+1.0.7
+=============
+- add current Product, Category services
