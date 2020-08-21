@@ -22,3 +22,16 @@ Create Config/Source array model for System configuration dropdown:
      </arguments>
  </virtualType>
 ```
+
+### VERSION 1.0.7
+Get current product 
+```php
+\W4PLEGO\Base\Service\GetCurrentProductService $currentProduct,
+$product = $this->currentProduct->getProduct();
+```
+
+Get current category 
+```php
+\W4PLEGO\Base\Service\GetCurrentCategoryService $currentCategory,
+$category = $this->currentCategory->getCategory();
+```
