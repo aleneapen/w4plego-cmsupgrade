@@ -2,10 +2,8 @@
 
 namespace W4PLEGO\Base\Service;
 
-use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Catalog\Api\Data\CategoryInterface;
-use Magento\Catalog\Model\Session as CatalogSession;
-use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Catalog\Api\Data\CategoryInterfaceFactory;
 
 /**
  *  GetCurrentCategoryService
@@ -13,73 +11,53 @@ use Magento\Framework\Exception\NoSuchEntityException;
 class GetCurrentCategoryService
 {
     /**
-     * Current Category
-     *
      * @var CategoryInterface
      */
-    private $currentCategory;
+    private $category;
 
     /**
-     * Current Category ID
-     *
-     * @var int|null
+     * @var CategoryInterfaceFactory
      */
-    private $categoryId;
+    private $categoryFactory;
 
     /**
-     * @var CatalogSession
+     * CurrentProduct constructor.
+     * @param CategoryInterfaceFactory $categoryFactory
      */
-    private $catalogSession;
-
-    /**
-     * @var CategoryRepositoryInterface
-     */
-    private $categoryRepository;
-
-    /**
-     * @param CatalogSession $catalogSession
-     * @param CategoryRepositoryInterface $categoryRepository
-     */
-    public function __construct(
-        CatalogSession $catalogSession,
-        CategoryRepositoryInterface $categoryRepository
-    ) {
-        $this->catalogSession = $catalogSession;
-        $this->categoryRepository = $categoryRepository;
+    public function __construct(CategoryInterfaceFactory $categoryFactory)
+    {
+        $this->categoryFactory = $categoryFactory;
     }
 
+    /**
+     * @param CategoryInterface $category
+     */
+    public function set(CategoryInterface $category): void
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return CategoryInterface
+     */
+    private function createNullCategory(): CategoryInterface
+    {
+        return $this->categoryFactory->create();
+    }
+
+    /**
+     * @return int|null
+     */
     public function getCategoryId()
     {
-        if (!$this->categoryId) {
-            $currentCategoryId = $this->catalogSession->getData('last_viewed_category_id');
-
-            if ($currentCategoryId) {
-                $this->categoryId = (int)$currentCategoryId;
-            }
-        }
-
-        return $this->categoryId;
+        return $this->getCategory()->getId();
     }
 
     /**
-     * @return CategoryInterface|null
+     * @return CategoryInterface
      */
-    public function getCategory()
+    public function getCategory() : CategoryInterface
     {
-        if (!$this->currentCategory) {
-            $categoryId = $this->getCategoryId();
-
-            if (!$categoryId) {
-                return null;
-            }
-
-            try {
-                $this->currentCategory = $this->categoryRepository->get($categoryId);
-            } catch (NoSuchEntityException $e) {
-                return null;
-            }
-        }
-
-        return $this->currentCategory;
+        return $this->category ?? $this->createNullCategory();
     }
 }

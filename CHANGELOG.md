@@ -30,3 +30,7 @@
 1.0.7
 =============
 - add current Product, Category services
+
+1.0.8
+=============
+- redone current Product and Category services functional
