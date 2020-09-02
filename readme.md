@@ -23,7 +23,7 @@ Create Config/Source array model for System configuration dropdown:
  </virtualType>
 ```
 
-### VERSION 1.0.7
+### VERSION 1.0.8
 Get current product 
 ```php
 \W4PLEGO\Base\Service\GetCurrentProductService $currentProduct,

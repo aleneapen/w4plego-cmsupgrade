@@ -3,9 +3,7 @@
 namespace W4PLEGO\Base\Service;
 
 use Magento\Catalog\Api\Data\ProductInterface;
-use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magento\Catalog\Model\Session as CatalogSession;
-use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Catalog\Api\Data\ProductInterfaceFactory;
 
 /**
  *  CurrentProductDataProvider
@@ -13,39 +11,38 @@ use Magento\Framework\Exception\NoSuchEntityException;
 class GetCurrentProductService
 {
     /**
-     * Current Product
-     *
      * @var ProductInterface
      */
-    private $currentProduct;
+    private $product;
 
     /**
-     * Current Product ID
-     *
-     * @var int|null
+     * @var ProductInterfaceFactory
      */
-    private $productId;
+    private $productFactory;
 
     /**
-     * @var CatalogSession
+     * CurrentProduct constructor.
+     * @param ProductInterfaceFactory $productFactory
      */
-    private $catalogSession;
+    public function __construct(ProductInterfaceFactory $productFactory)
+    {
+        $this->productFactory = $productFactory;
+    }
 
     /**
-     * @var ProductRepositoryInterface
+     * @param ProductInterface $product
      */
-    private $productRepository;
+    public function set(ProductInterface $product): void
+    {
+        $this->product = $product;
+    }
 
     /**
-     * @param CatalogSession $catalogSession
-     * @param ProductRepositoryInterface $productRepository
+     * @return ProductInterface
      */
-    public function __construct(
-        CatalogSession $catalogSession,
-        ProductRepositoryInterface $productRepository
-    ) {
-        $this->catalogSession = $catalogSession;
-        $this->productRepository = $productRepository;
+    private function createNullProduct(): ProductInterface
+    {
+        return $this->productFactory->create();
     }
 
     /**
@@ -53,33 +50,14 @@ class GetCurrentProductService
      */
     public function getProductId()
     {
-        if (!$this->productId) {
-            $productId = $this->catalogSession->getData('last_viewed_product_id');
-            $this->productId = $productId ? (int)$productId : null;
-        }
-
-        return $this->productId;
+        return $this->getProduct()->getId();
     }
 
     /**
-     * @return ProductInterface|null
+     * @return ProductInterface
      */
-    public function getProduct()
+    public function getProduct(): ProductInterface
     {
-        if (!$this->currentProduct) {
-            $productId = $this->getProductId();
-
-            if (!$productId) {
-                return null;
-            }
-
-            try {
-                $this->currentProduct = $this->productRepository->getById($this->getProductId());
-            } catch (NoSuchEntityException $e) {
-                return null;
-            }
-        }
-
-        return $this->currentProduct;
+        return $this->product ?? $this->createNullProduct();
     }
 }
