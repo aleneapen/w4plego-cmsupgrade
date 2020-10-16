@@ -34,3 +34,7 @@
 1.0.8
 =============
 - redone current Product and Category services functional
+
+1.0.9
+=============
+- fix datapost to use formkey from the cookie.
