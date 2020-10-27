@@ -36,4 +36,7 @@ Get current category
 $category = $this->currentCategory->getCategory();
 ```
 ### VERSION 1.0.9
-Fix getting formkey from the cookie
+Fix datapost to use formkey from the cookie
+
+### VERSION 1.0.9.1
+Fix datapost to use formkey from the cookie on frontend and from input field in the admin
