@@ -41,5 +41,8 @@
 
 1.0.9.1
 =============
-
 - fix datapost to use formkey from the cookie on frontend and from input field in the admin
+
+1.0.9.2
+=============
+- FAQ: add model and helper
