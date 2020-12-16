@@ -46,3 +46,4 @@
 1.0.9.2
 =============
 - FAQ: add model and helper
+- fix mage/cookies
