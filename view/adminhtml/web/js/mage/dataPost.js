@@ -44,7 +44,7 @@ define([
          * Data post action
          */
         postData: function (params, element) {
-            var formKey = $.mage.cookies.get('form_key'),
+            var formKey = $(this.options.formKeyInputSelector).val(),
                 $form, input;
 
             if (formKey) {

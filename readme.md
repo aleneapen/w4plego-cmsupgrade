@@ -35,3 +35,8 @@ Get current category
 \W4PLEGO\Base\Service\GetCurrentCategoryService $currentCategory,
 $category = $this->currentCategory->getCategory();
 ```
+### VERSION 1.0.9
+Fix datapost to use formkey from the cookie
+
+### VERSION 1.0.9.1
+Fix datapost to use formkey from the cookie on frontend and from input field in the admin
