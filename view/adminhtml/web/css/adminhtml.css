@@ -1,3 +1,13 @@
 .admin__menu .level-0.item-web4pro > a:before {
     content: url('../images/logo_w4p_31_17_menu.png');
 }
+
+.config-nav-block.w4p-main-tab strong:before {
+    background: url(../images/logo_w4p_28_15_tab.png) no-repeat;
+    width: 28px;
+    height: 15px;
+    content: '';
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: bottom;
+}
