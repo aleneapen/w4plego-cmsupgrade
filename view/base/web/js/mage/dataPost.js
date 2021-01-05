@@ -35,7 +35,7 @@ define([
          * Handler for click
          */
         _postDataAction: function (e) {
-            var params = JSON.parse($(e.currentTarget).attr('data-post'));
+            var params = $(e.currentTarget).data('post');
 
             e.preventDefault();
             this.postData(params, $(e.currentTarget));
