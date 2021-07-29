@@ -11,3 +11,16 @@
     margin-right: 12px;
     vertical-align: bottom;
 }
+
+.admin__menu [data-ui-id^="menu-web4pro-"] .submenu-group-title span:before,
+.admin__menu [data-ui-id^="menu-magento-"] [data-ui-id^="menu-magento-"] [data-ui-id^="menu-web4pro-"] span:before,
+.admin__menu [data-ui-id^="menu-w4plego-"] .submenu-group-title span:before,
+.admin__menu [data-ui-id^="menu-magento-"] [data-ui-id^="menu-magento-"] [data-ui-id^="menu-w4plego-"] span:before {
+    background: url(../images/logo_w4p_28_15_menu_color.png) no-repeat;
+    width: 28px;
+    height: 15px;
+    content: '';
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+}
